@@ -2,7 +2,7 @@
 #include "OrgChart.hpp"
 namespace ariel
 {
-    LevelOrderChartIterator::LevelOrderChartIterator(OrgNodeRef head)
+    LevelOrderChartIterator::LevelOrderChartIterator(const OrgNodeRef& head)
     {
         if(head != nullptr)
         {
@@ -12,7 +12,7 @@ namespace ariel
             while(!tmp_queue.empty())
             {
                 auto & node = tmp_queue.front();
-                for(OrgNodeRef& child : node.get()->childs)
+                for(OrgNodeRef& child : node->childs)
                 {
                     tmp_queue.push(child);
                     queue.push(child);
@@ -33,11 +33,8 @@ namespace ariel
         {
             return queue.front().get()->id == Other.queue.front().get()->id;
         }
-        else if(queue.empty() && Other.queue.empty())
-        {
-            return true;
-        }
-        return false;
+        // Not allowed to use else if because of TIDY! what a yoke
+        return queue.empty() && Other.queue.empty();
     }
 
     bool LevelOrderChartIterator::operator != (const LevelOrderChartIterator& Other) const
@@ -54,9 +51,9 @@ namespace ariel
 
     LevelOrderChartIterator LevelOrderChartIterator::operator ++(int)
     {
-        LevelOrderChartIterator it = *this;
+        LevelOrderChartIterator iter = *this;
         queue.pop();
-        return it;
+        return iter;
     }
 
     std::string LevelOrderChartIterator::operator*()

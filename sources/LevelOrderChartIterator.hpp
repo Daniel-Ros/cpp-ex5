@@ -11,7 +11,7 @@ namespace ariel
         using OrgNodeRef = std::shared_ptr<OrgNode>;
         std::queue<OrgNodeRef> queue;
     public:
-        LevelOrderChartIterator(OrgNodeRef);
+        LevelOrderChartIterator(const OrgNodeRef&);
         ~LevelOrderChartIterator();
 
         bool operator == (const LevelOrderChartIterator&) const ;

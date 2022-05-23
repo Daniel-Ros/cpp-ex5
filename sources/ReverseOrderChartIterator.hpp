@@ -10,7 +10,7 @@ namespace ariel
         using OrgNodeRef = std::shared_ptr<OrgNode>;
         std::stack<OrgNodeRef> stack;
     public:
-        ReverseOrderChartIterator(OrgNodeRef);
+        ReverseOrderChartIterator(const OrgNodeRef&);
         ~ReverseOrderChartIterator();
 
         bool operator == (const ReverseOrderChartIterator&) const ;

@@ -9,9 +9,9 @@ namespace ariel
     private:
         using OrgNodeRef = std::shared_ptr<OrgNode>;
         std::queue<OrgNodeRef> queue;
-        void createSearchTree(OrgNodeRef);
+        void createSearchTree(const OrgNodeRef&);
     public:
-        PreorderChartIterator(OrgNodeRef);
+        PreorderChartIterator(const OrgNodeRef&);
         ~PreorderChartIterator();
 
         bool operator == (const PreorderChartIterator&) const ;

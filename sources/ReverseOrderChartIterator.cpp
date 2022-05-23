@@ -4,7 +4,7 @@
 #include <algorithm>
 namespace ariel
 {
-    ReverseOrderChartIterator::ReverseOrderChartIterator(OrgNodeRef head)
+    ReverseOrderChartIterator::ReverseOrderChartIterator(const OrgNodeRef& head)
     {
         if(head != nullptr)
         {
@@ -18,18 +18,18 @@ namespace ariel
             {
                 auto & node = tmp_queue.front();
 
-                if(node.get()->level != last_level)
+                if(node->level != last_level)
                 {
                     while (!level_stack.empty())
                     {
                         stack.push(level_stack.top());
                         level_stack.pop();
-                        last_level  = node.get()->level;
+                        last_level  = node->level;
                     }
                     
                 }
 
-                for(OrgNodeRef& child : node.get()->childs)
+                for(OrgNodeRef& child : node->childs)
                 {
                     tmp_queue.push(child);
                 }
@@ -56,11 +56,7 @@ namespace ariel
         {
             return stack.top().get()->id == Other.stack.top().get()->id;
         }
-        else if(stack.empty() && Other.stack.empty())
-        {
-            return true;
-        }
-        return false;
+        return stack.empty() && Other.stack.empty();
     }
 
     bool ReverseOrderChartIterator::operator != (const ReverseOrderChartIterator& Other) const 
@@ -76,9 +72,9 @@ namespace ariel
 
     ReverseOrderChartIterator ReverseOrderChartIterator::operator ++(int)
     {
-        ReverseOrderChartIterator it = *this;
+        ReverseOrderChartIterator iter = *this;
         stack.pop();
-        return it;
+        return iter;
     }
 
     std::string ReverseOrderChartIterator::operator*()

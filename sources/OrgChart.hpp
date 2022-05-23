@@ -4,6 +4,10 @@
 #include <map>
 #include <memory>
 
+// For the tests
+#include <vector>
+#include <iostream>
+
 #include "LevelOrderChartIterator.hpp"
 #include "ReverseOrderChartIterator.hpp"
 #include "PreorderChartIterator.hpp"
