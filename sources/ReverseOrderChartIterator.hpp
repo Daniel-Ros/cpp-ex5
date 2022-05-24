@@ -11,7 +11,12 @@ namespace ariel
         std::stack<OrgNodeRef> stack;
     public:
         ReverseOrderChartIterator(const OrgNodeRef&);
-        ~ReverseOrderChartIterator();
+        ReverseOrderChartIterator(const ReverseOrderChartIterator&);
+        ReverseOrderChartIterator(ReverseOrderChartIterator&&) = default;
+        ~ReverseOrderChartIterator() =default;
+
+        ReverseOrderChartIterator& operator= ( const ReverseOrderChartIterator& ) = default; 	
+        ReverseOrderChartIterator& operator= ( ReverseOrderChartIterator&& ) = default; 	
 
         bool operator == (const ReverseOrderChartIterator&) const ;
         bool operator != (const ReverseOrderChartIterator&) const ;

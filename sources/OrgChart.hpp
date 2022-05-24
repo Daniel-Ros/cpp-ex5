@@ -34,12 +34,16 @@ namespace ariel
     {
     public:
         OrgChart();
-        ~OrgChart();
+        OrgChart(const OrgChart&) = default;
+        OrgChart(OrgChart&&) = default;
+        ~OrgChart() = default;
 
         OrgChart& add_root(const std::string&);
         OrgChart& add_sub(const std::string& ,const  std::string&);
 
         friend std::ostream& operator<<(std::ostream&,const OrgChart&);
+        OrgChart& operator= ( const OrgChart& ) = default; 	
+        OrgChart& operator= ( OrgChart&& ) = default; 	
 
         LevelOrderChartIterator begin();
         LevelOrderChartIterator end();

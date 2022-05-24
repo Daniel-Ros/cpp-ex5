@@ -22,6 +22,11 @@ namespace ariel
         }
     }
 
+    LevelOrderChartIterator::LevelOrderChartIterator(LevelOrderChartIterator& lvlIter)
+    {
+        queue = lvlIter.queue;
+    }
+
     LevelOrderChartIterator::~LevelOrderChartIterator()
     {
 

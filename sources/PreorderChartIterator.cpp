@@ -13,11 +13,11 @@ namespace ariel
         }
     }
 
-    PreorderChartIterator::~PreorderChartIterator()
+    PreorderChartIterator::PreorderChartIterator(const PreorderChartIterator& iter)
     {
-
+        queue = iter.queue;
     }
-
+    
     void PreorderChartIterator::createSearchTree(const OrgNodeRef& head)
     {
         queue.push(head);

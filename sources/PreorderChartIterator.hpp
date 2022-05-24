@@ -12,7 +12,12 @@ namespace ariel
         void createSearchTree(const OrgNodeRef&);
     public:
         PreorderChartIterator(const OrgNodeRef&);
-        ~PreorderChartIterator();
+        PreorderChartIterator(const PreorderChartIterator&);
+        PreorderChartIterator( PreorderChartIterator&&) = default;
+        ~PreorderChartIterator() = default;
+
+        PreorderChartIterator& operator= ( const PreorderChartIterator& ) = default; 	
+        PreorderChartIterator& operator= ( PreorderChartIterator&& ) = default; 	
 
         bool operator == (const PreorderChartIterator&) const ;
         bool operator != (const PreorderChartIterator&) const ;

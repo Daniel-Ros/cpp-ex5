@@ -22,11 +22,6 @@ namespace ariel
 
     }
 
-    OrgChart::~OrgChart()
-    {
-
-    }
-
     OrgChart& OrgChart::add_root(const std::string& role)
     {
         if(root.get() == nullptr)

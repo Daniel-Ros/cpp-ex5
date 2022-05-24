@@ -12,7 +12,12 @@ namespace ariel
         std::queue<OrgNodeRef> queue;
     public:
         LevelOrderChartIterator(const OrgNodeRef&);
+        LevelOrderChartIterator(LevelOrderChartIterator&);
+        LevelOrderChartIterator(LevelOrderChartIterator&&) = default;
         ~LevelOrderChartIterator();
+
+        LevelOrderChartIterator& operator= ( const LevelOrderChartIterator& ) = default; 	
+        LevelOrderChartIterator& operator= ( LevelOrderChartIterator&& )= default; 	
 
         bool operator == (const LevelOrderChartIterator&) const ;
         bool operator != (const LevelOrderChartIterator&) const ;

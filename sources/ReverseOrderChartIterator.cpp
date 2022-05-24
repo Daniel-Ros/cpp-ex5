@@ -45,9 +45,9 @@ namespace ariel
         }
     }
 
-    ReverseOrderChartIterator::~ReverseOrderChartIterator()
+    ReverseOrderChartIterator::ReverseOrderChartIterator(const ReverseOrderChartIterator& iter)
     {
-
+        stack = iter.stack;
     }
 
     bool ReverseOrderChartIterator::operator == (const ReverseOrderChartIterator& Other) const 
